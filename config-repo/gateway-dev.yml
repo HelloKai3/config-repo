@@ -5,7 +5,7 @@ eureka:
   client:
     service-url:
       #表示注册到 hyr-eureka-server 的地址
-      defaultZone: http://localhost:7070/eureka/
+      defaultZone: http://localhost:10000/eureka/
 spring:
   profiles:
     active: dev
