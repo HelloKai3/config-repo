@@ -72,4 +72,11 @@ spring:
             - Path=/distributCenter/**
           filters:
             - StripPrefix=1  
+        - id: order
+          uri: lb://order
+          predicates:
+            - Path=/order/**
+            #- Header=token, \d+  #当请求的Header中有token的header名，且header值为数字时，请求会被路由到配置的 uri. 
+          filters:
+            - StripPrefix=1 # 去除请求地址中的to_client
        
