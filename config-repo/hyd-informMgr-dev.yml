@@ -1,0 +1,36 @@
+# 通知管理配置文件
+server:
+  port: 10040
+spring:
+  profiles:
+    active: dev
+  application:
+    #表示注册到eureka的服务名
+    name: hyd-informMgr
+  # mysql
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/hyd?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+
+# mybatis-plus 配置
+ mybatis-plus:
+  type-aliases-package: com.xiaoshi.order.model # 实体类路径
+  mapper-locations: classpath:/mappers/*Mapper.xml # *.xml文件路径 
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    
+eureka:
+  client:
+    service-url:
+      #表示注册到 hyr-eureka-server 的地址
+      defaultZone: http://localhost:7070/eureka/
+#读取日志配置文件
+logging:
+  config: classpath:logback-informMgr.xml
+  #日志输出路径
+  path: F:/log/informMgr
+
+
