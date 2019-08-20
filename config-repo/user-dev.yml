@@ -1,0 +1,26 @@
+server:
+  port: 10004
+spring:
+  profiles:
+    active: dev
+  application:
+    #表示注册到eureka的服务名
+    name: user
+  # mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/hyd?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+   
+   
+eureka:
+  client:
+    service-url:
+      #表示注册到 hyr-eureka-server 的地址
+      defaultZone: http://localhost:7070/eureka/
+#读取日志配置文件
+logging:
+  config: classpath:logback-user.xml
+  #日志输出路径
+  path: F:/log/user
